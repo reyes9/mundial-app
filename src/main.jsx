@@ -10,6 +10,7 @@ import FaseFinal from './pages/FaseFinal'
 import FaseFinalSeparado from './pages/FinalSeparado'
 import Preguntas from './pages/Preguntas'
 import Clasificacion from './pages/Ranking'
+import Premios from './pages/Premios'
 
 const tabs = [
   { id: 'matches', label: 'Partidos' },
@@ -18,6 +19,7 @@ const tabs = [
   { id: 'knockout-separado', label: 'Fase final Detalle' },
   { id: 'questions', label: 'Preguntas' },
   { id: 'ranking', label: 'Ranking' },
+  { id: 'prizes', label: 'Premios' },
 ]
 
 function cleanRows(rows) {
@@ -96,7 +98,7 @@ function App() {
 
   useEffect(() => {
     if (!isLogged) return
-    if (active === 'matches' || active === 'groups' || active === 'knockout' || active === 'knockout-separado' || active === 'questions' || active === 'ranking') return
+    if (active === 'matches' || active === 'groups' || active === 'knockout' || active === 'knockout-separado' || active === 'questions' || active === 'ranking'|| active === 'prizes') return
 
     setLoading(true)
     setError('')
@@ -147,6 +149,8 @@ function App() {
           <Preguntas  />
         ) : active === 'ranking' ? (
           <Clasificacion />
+        ) : active === 'prizes' ? (
+          <Premios />
         ) : (
           <>
             {loading && <div className="loading">Cargando datos...</div>}

@@ -1,0 +1,78 @@
+.prizes-page {
+  min-height: 100vh;
+  padding: 32px;
+  background:
+    radial-gradient(circle at top right, rgba(250, 204, 21, 0.25), transparent 32%),
+    linear-gradient(135deg, #071d33 0%, #0a2540 50%, #020617 100%);
+  color: white;
+}
+
+.prizes-hero h1 {
+  margin: 0;
+  font-size: 42px;
+}
+
+.prizes-hero p {
+  margin: 8px 0 32px;
+  color: #cbd5e1;
+}
+
+.prizes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.prize-card {
+  position: relative;
+  overflow: hidden;
+  padding: 28px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+.prize-1 {
+  background: linear-gradient(135deg, #facc15, #ca8a04);
+  color: #211500;
+}
+
+.prize-2 {
+  background: linear-gradient(135deg, #e5e7eb, #94a3b8);
+  color: #111827;
+}
+
+.prize-3 {
+  background: linear-gradient(135deg, #fb923c, #92400e);
+  color: #fff7ed;
+}
+
+.prize-icon {
+  font-size: 48px;
+  margin-bottom: 14px;
+}
+
+.prize-position {
+  font-weight: 1000;
+  opacity: 0.75;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.prize-card h2 {
+  margin: 8px 0 10px;
+  font-size: 26px;
+}
+
+.prize-card p {
+  color: inherit;
+  opacity: 0.85;
+  line-height: 1.45;
+}
+
+.prize-amount {
+  margin-top: 22px;
+  font-size: 42px;
+  font-weight: 1000;
+}

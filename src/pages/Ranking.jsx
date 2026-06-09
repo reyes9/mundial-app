@@ -60,7 +60,7 @@ export default function Ranking() {
 
         <div className="ranking-live">
           <span className="live-dot"></span>
-          Actualizado desde Google Sheets
+          Actualizado
         </div>
       </div>
 
