@@ -1,0 +1,124 @@
+.bracket-page {
+  padding: 32px;
+  background: #f5f6f8;
+  min-height: 100vh;
+}
+
+.bracket-page h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #111827;
+}
+
+.bracket-page p {
+  margin: 6px 0 28px;
+  color: #64748b;
+}
+
+.bracket-scroll {
+  overflow-x: auto;
+  padding-bottom: 24px;
+}
+
+.bracket-board {
+  display: grid;
+  grid-template-columns: 220px 220px 220px 220px 260px 220px 220px 220px 220px;
+  gap: 28px;
+  align-items: start;
+  min-width: 2200px;
+}
+
+.bracket-column h2,
+.center-column h3 {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #475569;
+  margin: 0 0 28px;
+}
+
+.column-matches {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.bracket-column.offset .column-matches {
+  padding-top: 75px;
+  gap: 96px;
+}
+
+.bracket-column.offset-large .column-matches {
+  padding-top: 210px;
+  gap: 250px;
+}
+
+.bracket-column.offset-xl .column-matches {
+  padding-top: 460px;
+}
+
+.center-column {
+  padding-top: 330px;
+}
+
+.third-title {
+  margin-top: 42px !important;
+}
+
+.bracket-card {
+  position: relative;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.06);
+}
+
+.bracket-card.featured {
+  border: 2px solid #0a2540;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: #64748b;
+  background: #f8fafc;
+}
+
+.team-line {
+  display: grid;
+  grid-template-columns: 1fr 32px;
+  align-items: center;
+  padding: 10px 10px;
+  border-top: 1px solid #e5e7eb;
+  font-weight: 700;
+  color: #111827;
+}
+
+.team-line strong {
+  text-align: center;
+  color: #0a2540;
+}
+
+.card-footer {
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #7c2d12;
+  background: #fff7ed;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .bracket-page {
+    padding: 18px;
+  }
+
+  .bracket-board {
+    grid-template-columns: 200px 200px 200px 200px 240px 200px 200px 200px 200px;
+    gap: 20px;
+    min-width: 1980px;
+  }
+}

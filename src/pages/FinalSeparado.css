@@ -1,0 +1,122 @@
+.fifa-page {
+  padding: 32px;
+  background: #f4f6f9;
+  min-height: 100vh;
+}
+
+.fifa-header h1 {
+  margin: 0;
+  font-size: 36px;
+  color: #071d33;
+}
+
+.fifa-header p {
+  margin: 6px 0 24px;
+  color: #667085;
+}
+
+.round-tabs {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  margin-bottom: 28px;
+  padding-bottom: 8px;
+}
+
+.round-tabs button {
+  border: 0;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: #e8eef5;
+  color: #071d33;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.round-tabs button.active {
+  background: #071d33;
+  color: white;
+}
+
+.fifa-matches {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 18px;
+}
+
+.fifa-match-card {
+  background: white;
+  border-radius: 18px;
+  border: 1px solid #dce4ee;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+.match-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #f8fafc;
+  color: #667085;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.teams-row {
+  display: grid;
+  grid-template-columns: 1fr 86px 1fr;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 18px;
+}
+
+.team-name {
+  font-size: 18px;
+  font-weight: 900;
+  color: #071d33;
+}
+
+.team-name.right {
+  text-align: right;
+}
+
+.result {
+  text-align: center;
+  background: #edf2f7;
+  color: #071d33;
+  border-radius: 12px;
+  padding: 10px 8px;
+  font-weight: 900;
+}
+
+.result.played {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.match-bottom {
+  padding: 13px 18px;
+  border-top: 1px solid #edf0f3;
+  color: #667085;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .fifa-page {
+    padding: 18px;
+  }
+
+  .fifa-matches {
+    grid-template-columns: 1fr;
+  }
+
+  .teams-row {
+    grid-template-columns: 1fr 64px 1fr;
+  }
+
+  .team-name {
+    font-size: 15px;
+  }
+}

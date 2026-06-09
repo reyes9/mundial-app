@@ -1,0 +1,146 @@
+.groups-page {
+  padding: 24px;
+  background: #f3f5f8;
+  min-height: 100vh;
+}
+
+.groups-header {
+  margin-bottom: 24px;
+}
+
+.groups-header h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #111827;
+}
+
+.groups-header p {
+  margin: 4px 0 0;
+  color: #6b7280;
+}
+
+.classification-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.classification-card {
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.classification-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.classification-title {
+  background: #0a2540;
+  color: white;
+  padding: 14px 18px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.classification-table th {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 800;
+  text-align: center;
+  padding: 10px 6px;
+  background: #f8fafc;
+}
+
+.classification-table th:nth-child(2),
+.classification-table td:nth-child(2) {
+  text-align: left;
+}
+
+.classification-table td {
+  padding: 11px 6px;
+  text-align: center;
+  border-top: 1px solid #edf0f3;
+  font-size: 14px;
+}
+
+.classification-table tr.qualified {
+  background: #ecfdf5;
+}
+
+.classification-table tr.third-place {
+  background: #fffbeb;
+}
+
+.team-name {
+  font-weight: 800;
+  color: #111827;
+}
+
+.team-name small {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.points {
+  font-weight: 900;
+  color: #0a2540;
+}
+
+.classification-legend {
+  display: flex;
+  gap: 14px;
+  padding: 12px 18px;
+  font-size: 12px;
+  color: #6b7280;
+  border-top: 1px solid #edf0f3;
+}
+
+.classification-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.green-dot,
+.yellow-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.green-dot {
+  background: #10b981;
+}
+
+.yellow-dot {
+  background: #f59e0b;
+}
+
+@media (max-width: 700px) {
+  .groups-page {
+    padding: 16px;
+  }
+
+  .classification-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .classification-table th,
+  .classification-table td {
+    font-size: 12px;
+    padding: 9px 4px;
+  }
+}
