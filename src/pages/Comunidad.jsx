@@ -155,7 +155,8 @@ function CommunityBlock({ block, rows }) {
 
       {uniqueAnswers.length > 0 && (
         <div className="unique-box">
-          <h3>🚨 Apuestas bajo investigación</h3>
+          <h3>🚨 Fuente: Tiene un Pálpito</h3>
+          <p>Nivel de confianza: 100%. Nivel de pruebas: 0%</p>
 
           {uniqueAnswers.map(([answer, people]) => (
             <div className="unique-row" key={answer}>
