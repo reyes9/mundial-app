@@ -5,6 +5,7 @@
     radial-gradient(circle at top right, rgba(250, 204, 21, 0.25), transparent 32%),
     linear-gradient(135deg, #071d33 0%, #0a2540 50%, #020617 100%);
   color: white;
+  border-radius: 25px;
 }
 
 .prizes-hero h1 {

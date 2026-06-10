@@ -11,15 +11,19 @@ import FaseFinalSeparado from './pages/FinalSeparado'
 import Preguntas from './pages/Preguntas'
 import Clasificacion from './pages/Ranking'
 import Premios from './pages/Premios'
+import Apuestas from './pages/Apuestas'
+import Comunidad from './pages/Comunidad'
 
 const tabs = [
-  { id: 'matches', label: 'Partidos' },
-  { id: 'groups', label: 'Grupos' },
-  { id: 'knockout', label: 'Fase final' },
-  { id: 'knockout-separado', label: 'Fase final Detalle' },
-  { id: 'questions', label: 'Preguntas' },
-  { id: 'ranking', label: 'Ranking' },
-  { id: 'prizes', label: 'Premios' },
+  { id: 'community', label: '🌶️ Comunidad' },
+  { id: 'matches', label: '🏠 Partidos' },
+  { id: 'groups', label: '🏆 Grupos' },
+  { id: 'knockout', label: '🎯 Fase final' },
+  { id: 'knockout-separado', label: '🎯 Fase final Detalle' },
+  { id: 'questions', label: '❓ Preguntas' },
+  { id: 'ranking', label: '📊 Ranking' },
+  { id: 'apuestas', label: '🏆 Apuestas' },
+  { id: 'prizes', label: '🎁 Premios' },
 ]
 
 function cleanRows(rows) {
@@ -91,14 +95,16 @@ function CsvTable({ title, rows }) {
 
 function App() {
   const [isLogged, setIsLogged] = useState(localStorage.getItem('porra-auth') === 'ok')
-  const [active, setActive] = useState('matches')
+  const [active, setActive] = useState('community')
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
   useEffect(() => {
     if (!isLogged) return
-    if (active === 'matches' || active === 'groups' || active === 'knockout' || active === 'knockout-separado' || active === 'questions' || active === 'ranking'|| active === 'prizes') return
+    if (active === 'matches' || active === 'groups' || active === 'knockout' || 
+      active === 'knockout-separado' || active === 'questions' || active === 'ranking'|| 
+      active === 'prizes' || active === 'apuestas' || active === 'community') return
 
     setLoading(true)
     setError('')
@@ -151,6 +157,10 @@ function App() {
           <Clasificacion />
         ) : active === 'prizes' ? (
           <Premios />
+        ) : active === 'apuestas' ? (
+          <Apuestas />
+        ) : active === 'community' ? (
+          <Comunidad />
         ) : (
           <>
             {loading && <div className="loading">Cargando datos...</div>}
