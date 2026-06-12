@@ -13,6 +13,8 @@ import Clasificacion from './pages/Ranking'
 import Premios from './pages/Premios'
 import Apuestas from './pages/Apuestas'
 import Comunidad from './pages/Comunidad'
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const tabs = [
   { id: 'community', label: '🌶️ Comunidad' },
