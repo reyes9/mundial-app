@@ -140,6 +140,23 @@ export default function Premios() {
           </div>
           <p>La puntuación exacta se puede consultar en la pestaña “Preguntas”.</p>
         </div>
+        <div className="tie-rule">
+          <span>🤝 Empates</span>
+
+          <strong>Reparto de premios en caso de empate</strong>
+
+          <p>
+            Si dos o más participantes finalizan con la misma puntuación en una posición
+            premiada, el importe correspondiente a dicha posición se repartirá a partes
+            iguales entre todos los participantes empatados.
+          </p>
+
+          <p>
+            Ejemplo: si tres participantes empatan en la primera posición, el premio del
+            campeón se dividirá entre los tres, correspondiendo a cada uno un tercio
+            del importe total.
+          </p>
+        </div>
       </section>
     </div>
   );

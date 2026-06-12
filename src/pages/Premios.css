@@ -248,3 +248,34 @@
     grid-template-columns: 1fr;
   }
 }
+
+.tie-rule {
+  margin-top: 22px;
+  background: #eff6ff;
+  border: 1px solid #93c5fd;
+  border-radius: 22px;
+  padding: 20px;
+  color: #1e3a8a;
+}
+
+.tie-rule span {
+  display: block;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.tie-rule strong {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.tie-rule p {
+  margin: 0 0 10px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.tie-rule p:last-child {
+  margin-bottom: 0;
+}
