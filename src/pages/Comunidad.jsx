@@ -4,6 +4,8 @@ import "./Comunidad.css";
 
 const COMMUNITY_CSV =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vQd4VJYfJrM5WCnSdXrNnQLT9OFh_edPkLDQ9a82l7_wtWuyuCQ3MmbQW1ys8fDIVtABtCEs1CSKxZF/pub?gid=1992439699&single=true&output=csv";
+const MATCHES_STATUS_CSV =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQd4VJYfJrM5WCnSdXrNnQLT9OFh_edPkLDQ9a82l7_wtWuyuCQ3MmbQW1ys8fDIVtABtCEs1CSKxZF/pub?gid=1215895559&single=true&output=csv";
 
 const BLOCKS = [
   {
@@ -32,11 +34,17 @@ const BLOCKS = [
   },
 ];
 
+
+
 export default function Comunidad() {
   const [rows, setRows] = useState([]);
-
+  const [matchStatus, setMatchStatus] = useState({
+    live: [],
+    next: [],
+    });
   useEffect(() => {
     loadCommunity();
+    loadMatchStatus();
   }, []);
 
   const loadCommunity = async () => {
@@ -61,6 +69,58 @@ export default function Comunidad() {
     setRows(data);
   };
 
+  const loadMatchStatus = async () => {
+    const res = await fetch(`${MATCHES_STATUS_CSV}&cacheBust=${Date.now()}`);
+    const text = await res.text();
+
+    const parsed = Papa.parse(text, {
+        skipEmptyLines: false,
+    });
+
+    const rows = parsed.data.map((row) =>
+        row.map((cell) => String(cell || "").trim())
+    );
+
+    const live = [];
+    const next = [];
+    let section = "";
+
+    rows.forEach((row) => {
+        const first = row[0];
+
+        if (first.includes("EN JUEGO")) {
+        section = "live";
+        return;
+        }
+
+        if (first.includes("PRÓXIMOS") || first.includes("PROXIMOS")) {
+        section = "next";
+        return;
+        }
+
+        if (!first || first.toLowerCase().includes("no hay partidos")) return;
+
+        const match = {
+        local: row[0],
+        golesLocal: row[1],
+        golesVisitante: row[2],
+        visitante: row[3],
+        fecha: row[4],
+        estado: row[5],
+        };
+
+        if (!match.local || !match.visitante) return;
+
+        if (section === "live") live.push(match);
+        if (section === "next") next.push(match);
+    });
+
+    setMatchStatus({
+        live,
+        next: next.slice(0, 3),
+    });
+    };
+
   return (
     <div className="community-page">
       <section className="community-hero">
@@ -73,6 +133,8 @@ export default function Comunidad() {
           </p>
         </div>
       </section>
+
+      <MatchStatusBlock live={matchStatus.live} next={matchStatus.next} />
 
       <section className="community-grid">
         {BLOCKS.map((block) => (
@@ -237,4 +299,62 @@ function normalizeAnswer(value) {
   return String(value || "")
     .trim()
     .replace(/\s+/g, " ");
+}
+
+function MatchStatusBlock({ live, next }) {
+  return (
+    <section className="match-status-strip">
+      {live.length > 0 && (
+        <div className="status-mini-block live-mini-block">
+          <div className="status-mini-title">
+            <strong>🔥 En juego</strong>
+            <span>{live.length}</span>
+          </div>
+
+          <div className="mini-match-list">
+            {live.map((match, index) => (
+              <MiniMatchLive key={index} match={match} live />
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div className="status-mini-block">
+        <div className="status-mini-title">
+          <strong>⏭️ Próximos partidos</strong>
+          <span>{next.length}</span>
+        </div>
+
+        <div className="mini-match-list">
+          {next.map((match, index) => (
+            <MiniMatch key={index} match={match} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function MiniMatch({ match, live }) {
+  return (
+    <article className={live ? "mini-match live" : "mini-match"}>
+      <div className="mini-match-score">
+        <strong>{match.local}</strong>
+        <span>{match.golesLocal} - {match.golesVisitante}</span>
+        <strong>{match.visitante}</strong>
+      </div>
+      <small>{match.fecha}</small>
+    </article>
+  );
+}
+function MiniMatchLive({ match, live }) {
+  return (
+    <article className={live ? "mini-match live" : "mini-match"}>
+      <div className="mini-match-score">
+        <strong>{match.local}</strong>
+        <span>{match.golesLocal} - {match.golesVisitante}</span>
+        <strong>{match.visitante}</strong>
+      </div>
+    </article>
+  );
 }

@@ -16,13 +16,13 @@ import Comunidad from './pages/Comunidad'
 
 const tabs = [
   { id: 'community', label: '🌶️ Comunidad' },
+  { id: 'ranking', label: '📊 Ranking' },
+  { id: 'apuestas', label: '🏆 Apuestas' },
   { id: 'matches', label: '🏠 Partidos' },
   { id: 'groups', label: '🏆 Grupos' },
   { id: 'knockout', label: '🎯 Fase final' },
   { id: 'knockout-separado', label: '🎯 Fase final Detalle' },
   { id: 'questions', label: '❓ Preguntas' },
-  { id: 'ranking', label: '📊 Ranking' },
-  { id: 'apuestas', label: '🏆 Apuestas' },
   { id: 'prizes', label: '🎁 Premios' },
 ]
 
