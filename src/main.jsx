@@ -13,8 +13,8 @@ import Clasificacion from './pages/Ranking'
 import Premios from './pages/Premios'
 import Apuestas from './pages/Apuestas'
 import Comunidad from './pages/Comunidad'
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 const tabs = [
   { id: 'community', label: '🌶️ Comunidad' },
@@ -175,4 +175,10 @@ function App() {
   )
 }
 
-createRoot(document.getElementById('root')).render(<App />)
+createRoot(document.getElementById('root')).render(
+<>
+  <App />
+  <Analytics />
+  <SpeedInsights />
+</>
+)
