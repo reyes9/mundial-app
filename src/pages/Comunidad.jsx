@@ -28,8 +28,8 @@ const BLOCKS = [
   },
   {
     key: "roja",
-    title: "🚩 Primera roja",
-    subtitle: "La sección más turbia de la porra",
+    title: "⭐ El Expediente Tim Payne",
+    subtitle: "Un país entero espera. Tu porra también.",
     columnNames: ["Roja"],
   },
 ];
